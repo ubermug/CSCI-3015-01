@@ -32,10 +32,11 @@ public class TimeTester {
         // using Date() constructor
         Date result = new Date(myTollAcc.generateStartingTimeStamp());
   
-        // Formatting Date according to the
-        // given format
-        System.out.println(simple.format(result));
-		System.out.println(myTollAcc.generateStartingTimeStamp());
+        // Formatting Date according to the given format
+        // Test code to print out start date and ensure that it was 
+        // built as intended
+        //System.out.println(simple.format(result));
+		//System.out.println(myTollAcc.generateStartingTimeStamp());
 		
 	}
 }
