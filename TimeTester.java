@@ -18,19 +18,19 @@ public class TimeTester {
         start = System.nanoTime();
         List<Toll> tollList=myTollAcc.populateTollList(size, tollArray);
         end = System.nanoTime();
-        System.out.println("Took " + (end - start) + " ns to generate "+ size +" tolls with an ArrayList");
+        System.out.println("Took " + (end - start) + " ns to generate "+ size +" tolls with an Array List");
         
         List<Toll> tollLinked = new LinkedList<>();
         start = System.nanoTime();
         myTollAcc.populateTollList(size, tollLinked);
         end = System.nanoTime();
-        System.out.println("Took " + (end - start) + " ns to generate "+ size +" tolls with an ArrayList");
+        System.out.println("Took " + (end - start) + " ns to generate "+ size +" tolls with an Linked List");
         
         Map<Long, Toll> tollMap = new Hashtable<>();
         start = System.nanoTime();
         myTollAcc.populateTollMap(size, tollMap);
         end = System.nanoTime();
-        System.out.println("Took " + (end - start) + " ns to generate "+ size +" tolls with an ArrayList");
+        System.out.println("Took " + (end - start) + " ns to generate "+ size +" tolls with a Hash Table");
         
         // Creating date from milliseconds
         // using Date() constructor
