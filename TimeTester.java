@@ -5,28 +5,32 @@ public class TimeTester {
 	static TollAccumulator myTollAcc;
 	// Creating date format
     static final DateFormat simple = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
+
 	public static void main(String args[]) {
 		myTollAcc = new TollAccumulator();
-		
+
+		System.out.println("------------------- DATA STRUCTURE GENERATION -------------------------");
         long start;
         long end;
+        int size=100000;
+
         List<Toll> tollArray = new ArrayList<>();
         start = System.nanoTime();
-        myTollAcc.populateTollList(100, tollArray);
+        List<Toll> tollList=myTollAcc.populateTollList(size, tollArray);
         end = System.nanoTime();
-        System.out.println("Took " + (end - start) + "ns to generate 100 tolls with an ArrayList");
+        System.out.println("Took " + (end - start) + " ns to generate "+ size +" tolls with an ArrayList");
         
         List<Toll> tollLinked = new LinkedList<>();
         start = System.nanoTime();
-        myTollAcc.populateTollList(100, tollLinked);
+        myTollAcc.populateTollList(size, tollLinked);
         end = System.nanoTime();
-        System.out.println("Took " + (end - start) + "ns to generate 100 tolls with an LinkedList");
+        System.out.println("Took " + (end - start) + " ns to generate "+ size +" tolls with an ArrayList");
         
         Map<Long, Toll> tollMap = new Hashtable<>();
         start = System.nanoTime();
-        myTollAcc.populateTollMap(100, tollMap);
+        myTollAcc.populateTollMap(size, tollMap);
         end = System.nanoTime();
-        System.out.println("Took " + (end - start) + "ns to generate 100 tolls with an Hashtable");
+        System.out.println("Took " + (end - start) + " ns to generate "+ size +" tolls with an ArrayList");
         
         // Creating date from milliseconds
         // using Date() constructor
@@ -36,7 +40,11 @@ public class TimeTester {
         // Test code to print out start date and ensure that it was 
         // built as intended
         //System.out.println(simple.format(result));
-		//System.out.println(myTollAcc.generateStartingTimeStamp());
-		
+
+        /// REAZ (START) ///
+        System.out.println("------------------- SEARCH TIMER ---------------------------");
+        TollSearch mySearch= new TollSearch();
+        mySearch.SearchRanker(tollArray,tollLinked,tollMap);
+        /// REAZ (END) ///
 	}
 }
