@@ -44,7 +44,7 @@ public class TimeTester {
         /// REAZ (START) ///
         System.out.println("------------------- SEARCH TIMER ---------------------------");
         TollSearch mySearch= new TollSearch();
-        mySearch.SearchRanker(tollArray,tollLinked,tollMap);
+        mySearch.SearchRankerAlternate(tollArray,tollLinked,tollMap);
         /// REAZ (END) ///
 	}
 }

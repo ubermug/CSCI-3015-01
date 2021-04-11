@@ -2,6 +2,35 @@ import java.util.*;
 
 public class TollSearch
 {
+    public void SearchRankerAlternate(List<Toll> tollArray, List<Toll> tollLinkedList, Map<Long, Toll> tollMap)
+    {
+        String [] types= {"Array","LinkedList","Hashmap"};
+        Long [] durations= {this.ArraySearchTimer(tollArray),this.LinkedListSearchTimer(tollLinkedList),this.HashSearchTimer(tollMap)};
+
+        for (int i=0; i<durations.length-1;i++)
+        {
+            for (int j = 1; j < durations.length; j++)
+            {
+                if (durations[j]<durations[i])
+                {
+                    long temp=durations[i];
+                    String hold=types[i];
+                    durations[i]=durations[j];
+                    durations[j]=temp;
+                    types[i]=types[j];
+                    types[j]=hold;
+
+                }
+            }
+        }
+
+        for (int i=0; i<types.length;i++)
+        {
+            System.out.println(""+(i+1)+"."+types[i]+", "+"Time(ns): "+durations[i]);
+        }
+
+    }
+
     public void SearchRanker(List<Toll> tollArray, List<Toll> tollLinkedList, Map<Long, Toll> tollMap)
     {
         TreeMap<Long,String> rankTree= new TreeMap<>();
