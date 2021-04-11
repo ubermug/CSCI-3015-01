@@ -24,6 +24,9 @@ public class TollSearch
             }
         }
 
+        System.out.println();
+        System.out.println("THE DELETION TIME FOR A RANDOM ELEMENT ARE SORTED BELOW IN LOW TO HIGH (TIME IN NANOSEC.)");
+
         for (int i=0; i<types.length;i++)
         {
             System.out.println(""+(i+1)+"."+types[i]+", "+"Time(ns): "+durations[i]);
